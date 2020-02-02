@@ -1,0 +1,7 @@
+{"username":"tib","message":"Pour le moment dep tabNine prend en charge les langages suivants :  Python, JavaScript, Java, C ++, C, PHP, Go, C#, Ruby, Objective-C, Rust, Swift, TypeScript, Haskell, OCaml, Scala, Kotlin, Perl , SQL, HTML, CSS et Bash. Dep TabNime ne consulte pas le code des utilisateurs mais il aide directement les projets pour les faire d\u00e9velopper.","date":1564475324}
+{"username":"tib","message":"Pour le moment dep tabNine prend en charge les langages suivants :  Python, JavaScript, Java, C ++, C, PHP, Go, C#, Ruby, Objective-C, Rust, Swift, TypeScript, Haskell, OCaml, Scala, Kotlin, Perl , SQL, HTML, CSS et Bash. Dep TabNime ne consulte pas le code des utilisateurs mais il aide directement les projets pour les faire d\u00e9velopper.","date":1564475341}
+{"username":"jacquie","message":"Les utilisateurs qui ont essay\u00e9s, ont donn\u00e9 leur avis favorable mais aussi des suggestions pour le faire am\u00e9liorer. Jackson nous explique que deep Tabnime est plus adapte \u00e0 certains types de codage et il n\u2019est pas fiable pour un nouveau probl\u00e8me qui n\u2019est pas d\u00e9j\u00e0 r\u00e9solu ","date":1564475374}
+{"username":"vali","message":"poti sami sugi pula cu saitu tau de cacat","date":1564491217}
+{"username":"tytttt","message":"fffggg\r\nhgffff","date":1564491294}
+{"username":"nbb","message":"nbbbbbbbvvvv","date":1564498741}
+{"username":"FYJKL","message":"DTFYHUJIOPLOUIYUTYF","date":1579900909}

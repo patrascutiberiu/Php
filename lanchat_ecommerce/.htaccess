@@ -1,0 +1,18 @@
+# Suivre les liens symboliques
+Options +FollowSymlinks 
+
+
+# Activation du module "rewrite" d'Apache
+RewriteEngine On
+
+
+#RewriteRule ^toto\.html$ index.php [L]
+#RewriteRule ^tib\.html$ index.php?page=inscription [L]
+
+RewriteRule ^index$ index.php [L]
+
+# Réécriture des URL avec parametres
+RewriteRule ^([a-z0-9\-]+)-([0-9]+)$ index.php?page=$1&$id=$2 [L]
+
+RewriteRule ^(.*)$ index.php?page=$1 [L 
+]
