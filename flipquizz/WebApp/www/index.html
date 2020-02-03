@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon titre</title>
+    <link rel="stylesheet" href="css/app.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/Db.js"></script>
+    <script src="js/Question.js"></script>
+    <script src="js/Category.js"></script>
+    <script src="js/Quiz.js"></script>
+    <script src="js/Team.js"></script>
+    <script src="js/Game.js"></script>
+    <script src="js/app.js"></script>
+</head>
+
+<body>
+    <input type="button" value="" class="reload">
+    <div id="vue">
+
+        <header>
+            <h1 class="titre">{{ game.quiz.quiz_theme }}</h1>
+        </header>
+
+
+        <main class="main">
+            <input type="button" class="start_conf" value="Start Configuration" v-if="!disabled_conf & !disabled_btn"
+                v-on:click="clickConf">
+            <div class="quiz-container" v-if="disabled_conf">
+                <div v-for="quiz in quizzes" class="quiz_theme">
+                    <input type="radio" name="the_quiz" :id="quiz.quiz_id" :data-id="quiz.quiz_id"
+                        v-on:change="loadCategories">
+                    <label for="">{{ quiz.quiz_theme }}</label>
+                </div>
+
+                <div class="category-container" v-for="category in game.quiz.categories"
+                    v-if="game.quiz.categories.length > 0">
+                    <label for="">{{ category.category_name }}</label>
+                </div>
+
+                <div>
+                    <input type="button" value="Next" class="next" v-if="game.quiz.categories.length > 0"
+                        v-on:click="clickAddTeams">
+                </div>
+
+            </div>
+
+            <div class="team-container" v-if="disabled">
+                <h2>Number of teams</h2>
+                <article class="btn">
+
+                    <button class="btnPlus" v-on:click="addTeam()"></button>
+                    <button class="btnMinus" v-if="game.teams.length > 0" v-on:click="deleteTeam()"></button>
+                </article>
+
+                <article class="team" v-for="team in game.teams">
+                    <label for="">{{ team.name }}</label>
+                    <input v-model="team.name">
+                </article>
+                <article class="start">
+                    <input type="button" id="btnStart" value="Play the quiz"
+                        :disabled="game.teams.length > 0 ? false : true " v-on:click='gameStarted'>
+                </article>
+            </div>
+        </main>
+
+
+
+        <section class="right" v-if="game.started">
+            <!-- <input type="button" class="back_main" > -->
+            <article>
+                <header class="theme" v-for=''>
+                    <h2>ThemeTheme ThemeTheme</h2>
+                </header>
+                <div class="score">
+                    <h3>100</h3>
+                </div>
+                <div class="score">
+                    <h3>200</h3>
+                </div>
+                <div class="score">
+                    <h3>300</h3>
+                </div>
+                <div class="score">
+                    <h3>400</h3>
+                </div>
+                <div class="score">
+                    <h3>500</h3>
+                </div>
+            </article>
+
+            <article>
+                <header class="theme">
+                    <h2>Theme</h2>
+                </header>
+                <div class="score">
+                    <h3>100</h3>
+                </div>
+                <div class="score">
+                    <h3>200</h3>
+                </div>
+                <div class="score">
+                    <h3>300</h3>
+                </div>
+                <div class="score">
+                    <h3>400</h3>
+                </div>
+                <div class="score">
+                    <h3>500</h3>
+                </div>
+            </article>
+
+            <article>
+                <header class="theme">
+                    <h2>Theme</h2>
+                </header>
+                <div class="score">
+                    <h3>100</h3>
+                </div>
+                <div class="score">
+                    <h3>200</h3>
+                </div>
+                <div class="score">
+                    <h3>300</h3>
+                </div>
+                <div class="score">
+                    <h3>400</h3>
+                </div>
+                <div class="score">
+                    <h3>500</h3>
+                </div>
+            </article>
+
+            <article>
+                <header class="theme">
+                    <h2>Theme</h2>
+                </header>
+                <div class="score">
+                    <h3>100</h3>
+                </div>
+                <div class="score">
+                    <h3>200</h3>
+                </div>
+                <div class="score">
+                    <h3>300</h3>
+                </div>
+                <div class="score">
+                    <h3>400</h3>
+                </div>
+                <div class="score">
+                    <h3>500</h3>
+                </div>
+            </article>
+
+            <article>
+                <header class="theme">
+                    <h2>Theme</h2>
+                </header>
+                <div class="score">
+                    <h3>100</h3>
+                </div>
+                <div class="score">
+                    <h3>200</h3>
+                </div>
+                <div class="score">
+                    <h3>300</h3>
+                </div>
+                <div class="score">
+                    <h3>400</h3>
+                </div>
+                <div class="score">
+                    <h3>500</h3>
+                </div>
+            </article>
+
+            <div id="modalPrincipal">
+                <input type="button" alt="" class="close">
+                <h2>Question ? </h2>
+                <button class="btnReponse">Response</button>
+                <div id="modalSecondary">
+                    <input type="button" class="back">
+                    <input type="button" value="" class="closeTotal">
+                    <h2>Answer</h2>
+                    <input type="button" class="btnValidate" value="Validate">
+                </div>
+            </div>
+
+        </section>
+
+        <footer class="footer" v-if="game.teams.length > 0">
+            <article class="team" :data-id="team.id" v-for="team in game.teams">
+                <label for="">{{ team.name }}</label>
+                <label for="">Score : {{ team.score }}</label>
+            </article>
+        </footer>
+    </div>
+
+</body>
+
+</html>
+
+<!-- <input type="radio" name="the_category" :id="category.category_id" :data-id="category.category_id" v-on:change="loadQuestions" > -->
+<!-- <article class="questions" v-for="question in questions">
+    <label for="">{{ question.question_content }}</label>
+</article> -->
+
+<!-- <p>Crédits</p>
+<div v-for="author in authors">
+    <p>{{ author }}</p>
+</div>
+<div v-if="isActive">Ceci est affiché!</div>
+<div v-if="year >= 2025">Lorem</div> -->
+<!-- <hr>
+{{ renderBody }}
+<button id="btn">CLICK ME /!\</button>
+<br>
+<input v-model="pageTitle">
+<input v-model="year"> -->
