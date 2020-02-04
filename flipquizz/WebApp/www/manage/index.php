@@ -1,5 +1,7 @@
 <?php
-
+session_start();
+require_once dirname(__DIR__, 2) . '/Loader.php';
+require_once dirname(__DIR__, 2) . '/Debug.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,21 +21,73 @@
     <nav>
         <ul>
             <li>
-                <a href="">Profile</a>
+                <a href="?page=users">Users</a>
             </li>
             <li>
-                <a href="">Quizzes</a>
+                <a href="?=page=quizzes">Quizzes</a>
             </li>
             <li>
-                <a href="">Categories</a>
+                <a href="index.php?page=categories">Categories</a>
             </li>
             <li>
-                <a href="">Questions</a>
+                <a href="index.php?page=questions">Questions</a>
             </li>
         </ul>
     </nav>
     <main>
+        <?php
+        // if (!empty($_GET['page'])) {
+        //     $pageParametreGet = $_GET['page'];
+        // }
+        // else {
+        //     $pageParametreGet = $_GET['page'];
+        // }
 
+        $pageParametreGet = !empty($_GET['page']) ? $_GET['page'] : 'home';
+
+        //equvalent que la ternaire (null coalescing operator) qui fait le meme chose que avant
+        //$pageParametreGet =$_GET['page'] ?? 'home';
+        
+        if ($pageParametreGet === 'index') {
+            $pageParametreGet = 'home';
+        }
+
+        //si page est égal à index, on remplace sa valeur par 'home'
+        $pageParametreGet = ($pageParametreGet === 'index') ? 'home' : $pageParametreGet;
+
+        //veruille le fichier pour ne pas sortir de fichier //suprimer tout la partie du schema
+        $pageParametreGet = basename($pageParametreGet);
+
+        // // - utile que empty
+        // if (!isset($_GET['page'])) {
+        //     $pageParametreGet = $_GET['page'];
+        // }
+        // else {
+        //     $pageParametreGet = $_GET['page'];
+        // }
+
+        // $pageParametreGet =!isset($_GET['page']) ? $_GET['page'] :'home';
+
+
+        // if (array_key_exists('page', $_GET)) {
+
+        // }
+        //$pageParametreGet = $_GET['page'];
+
+        //concatenatin
+        //$pageParametreGet = ($pageParametreGet.'.php');
+        $pageParametreGet .= '.php'; //on ajoute .php à la valeur page
+
+        //echo($pageParametreGet);
+
+        if (is_file($pageParametreGet)) {
+            //include charger le fichier /copie le code de notre paramettre
+            require $pageParametreGet;
+        } else {
+            echo ('La page demandée n\'existe pas !');
+        }
+
+        ?>
     </main>
 </body>
 

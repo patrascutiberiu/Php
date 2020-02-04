@@ -1,33 +1,33 @@
 <h2>Liste Manager</h2>
 
 <?php
-    require_once dirname(__DIR__,2).'/Loader.php';
+//require_once dirname(__DIR__,2).'/Loader.php';
 
-    $accounts = new Models\AccountManager;
+$accounts = new Models\AccountManager;
 
-    //boucle plus rapide que while
-    //copie du tableau
-    foreach($accounts->getAccounts() as $user )
-    {
-        // echo '<pre>';
-        // echo $user['username'];
-        // echo '</pre>';
+//boucle plus rapide que while
+//copie du tableau
+foreach ($accounts->getAccounts() as $user) {
+    // echo '<pre>';
+    // echo $user['username'];
+    // echo '</pre>';
 ?>
 
-<div class="">
-    <?=$user['username'];?> : <?=$user['email'];?>
-</div>
+    <div class="">
+        <?= $user['username']; ?> : <?= $user['email']; ?>
+    </div>
 
 <?php
 
-    }
-    
+}
+
 ?>
 
 <h2>Add User</h2>
 
 <?php
-session_start();
+//il est deja demarrer sur l'index.php
+//session_start();
 
 if (!empty($_SESSION['error'])) {
     echo $_SESSION['error'];

@@ -93,7 +93,7 @@ class AccountManager
      * Retourner la collection d'utilisateurs 
      * @return array la collection d'utilisateur
      */
-    public function getAccounts() :array
+    public function getAccounts(): array
     {
 
 
@@ -101,25 +101,25 @@ class AccountManager
     }
 
     /**
+     * 
      *Vérifie si un utilisateur $_username existe et controle la correspondance de mot des passer 
-     *Renvoie true en cas de succès et false en cas d'erreur 
+     *Renvoie true en cas de succès et false en cas d'erreur
+     * @param string $_username
+     * @param string $_password 
+     * @return boolean true si la connexion a reusi
      */
-    public function login($_username): bool
+    public function login($_username, $_password): bool
     {
-        if (!$this->validUsername($_username) ) {
+        $user = $this->getUser($_username);
+
+        if ($user === null) {
             return false;
         }
 
-
-        foreach($this->accounts as $user){
-            if ($user['username'] !== $_username) {
-                return false;
-            }
+        if ($user->checkPassword($_password)) {
+            return false;
         }
-
-        echo('true');
         return true;
-
     }
 
     /**
@@ -138,7 +138,7 @@ class AccountManager
         $newUser = [
             'username' => $_username,
             //
-            'password' => \password_hash($_password,PASSWORD_BCRYPT),
+            'password' => \password_hash($_password, PASSWORD_BCRYPT),
             'email' => $_email,
         ];
 
