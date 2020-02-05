@@ -1,0 +1,92 @@
+/* page login.php */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: rgb(228, 172, 99);
+}
+.form {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    text-align: center;
+    padding: 30px;
+    border: 1px solid #000;
+}
+
+.form label{
+    font-size: 25px;
+	display:inline-block;
+    margin-bottom: 20px;
+    width: 150px;
+}
+.form input{
+	width: 250px;
+}
+
+/*page index.php*/
+.admin{
+    display: grid;
+    grid-template-areas: 'a a' 'b c';
+    grid-template-rows: 150px 1fr;
+    grid-template-columns: 250px 1fr;
+    height: 100vh;
+    
+}
+header{
+    grid-area: a;
+    border-bottom: 3px solid rgb(255, 255, 255);
+    background-color: rgb(228, 172, 99);
+
+}
+header h1{
+    text-align: center;
+    padding: 20px;
+}
+
+nav{
+    grid-area: b;
+    border-right: 3px solid rgb(255, 255, 255);
+    background-color: rgb(228, 172, 99);
+}
+nav ul{
+    padding: 0;
+    background-color: rgb(236, 193, 136);
+}
+nav li {
+    list-style: none;
+    border: 1px solid #000000;
+    padding: 20px;
+}
+nav li a{
+    color: white;
+    text-decoration: none;
+}
+main{
+    grid-area: c;
+}
+
+/*page users.php*/
+h2{
+    background-color: #faebd7;
+    height: 50px;
+    padding: 10px;
+    font-size: 25px;
+}
+.users td{
+    padding: 15px;
+}
+
+.add_users{
+    display: flex;
+    flex-direction: row;
+}
+.add_users label, .add_users input{
+    width: 130px;
+    margin: 10px;
+    padding: 5px;
+}

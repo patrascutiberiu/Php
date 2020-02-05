@@ -3,6 +3,11 @@
 use Models\AccountManager;
 
 session_start();
+
+if (!empty($_SESSION['user'])) {
+    header('location: index.php');
+}
+
 require_once dirname(__DIR__, 2) . '/Loader.php';
 require_once dirname(__DIR__, 2) . '/Debug.php';
 
@@ -20,6 +25,7 @@ if (!empty($_POST['username']) && !empty($_POST['password'])) {
         exit;
     }
 }
+
 ?>
 
 <html lang="fr">
@@ -28,7 +34,7 @@ if (!empty($_POST['username']) && !empty($_POST['password'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/user.css">
+    <link rel="stylesheet" href="../css/manage.css">
     <title>Authentication</title>
 </head>
 <style>

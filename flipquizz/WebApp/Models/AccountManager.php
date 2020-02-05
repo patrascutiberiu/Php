@@ -155,6 +155,7 @@ class AccountManager
         //     }
         // }
 
+        //
         $this->save();
 
         return true;
@@ -164,9 +165,30 @@ class AccountManager
      * vérifie si un utilisaateur $_username existe et le supprime si tel est le cas
      * Renvoie true si un utilisateur a été supprimé
      * Renvoie false si l'utilisateur n'est pas éte trouvé
+     * @param string $_username le nom de l'utilisateur à supprimer 
+     * @return bool true si la suppression à functionne false sinon
      */
-    public function removeUser($_username): bool
+    public function removeUser(string $_username): bool
     {
-        return true;
+        $user = $this->getUser($_username);
+
+        if ($user === null) {
+            return false;
+        }
+
+        $this->accounts;
+
+        foreach ($this->accounts as $key => $user) {
+            if ($user['username'] === $_username) {
+                //ssuprimer la donne du tableau
+                unset($this->accounts[$key]);
+
+                //sauvgarder le nouveau tableau
+                $this->save();
+                return true;
+            }
+        }
+
+        return false;
     }
 }

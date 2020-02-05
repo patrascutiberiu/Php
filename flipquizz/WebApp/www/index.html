@@ -61,7 +61,7 @@
                 </article>
                 <article class="start">
                     <input type="button" id="btnStart" value="Play the quiz"
-                        :disabled="game.teams.length > 0 ? false : true " v-on:click='gameStarted'>
+                        :disabled="game.teams.length > 0 ? false : true " v-on:click='gameStarted' >
                 </article>
             </div>
         </main>
@@ -70,110 +70,15 @@
 
         <section class="right" v-if="game.started">
             <!-- <input type="button" class="back_main" > -->
-            <article>
-                <header class="theme" v-for=''>
-                    <h2>ThemeTheme ThemeTheme</h2>
+            <article v-for="category in game.quiz.categories">
+                <header class="theme" >
+                    <h2>{{ category.category_name}}</h2>
                 </header>
-                <div class="score">
-                    <h3>100</h3>
-                </div>
-                <div class="score">
-                    <h3>200</h3>
-                </div>
-                <div class="score">
-                    <h3>300</h3>
-                </div>
-                <div class="score">
-                    <h3>400</h3>
-                </div>
-                <div class="score">
-                    <h3>500</h3>
+                <div class="score" v-for='question in category.questions'>
+                    <h3>{{ question.question_id }}</h3>
                 </div>
             </article>
 
-            <article>
-                <header class="theme">
-                    <h2>Theme</h2>
-                </header>
-                <div class="score">
-                    <h3>100</h3>
-                </div>
-                <div class="score">
-                    <h3>200</h3>
-                </div>
-                <div class="score">
-                    <h3>300</h3>
-                </div>
-                <div class="score">
-                    <h3>400</h3>
-                </div>
-                <div class="score">
-                    <h3>500</h3>
-                </div>
-            </article>
-
-            <article>
-                <header class="theme">
-                    <h2>Theme</h2>
-                </header>
-                <div class="score">
-                    <h3>100</h3>
-                </div>
-                <div class="score">
-                    <h3>200</h3>
-                </div>
-                <div class="score">
-                    <h3>300</h3>
-                </div>
-                <div class="score">
-                    <h3>400</h3>
-                </div>
-                <div class="score">
-                    <h3>500</h3>
-                </div>
-            </article>
-
-            <article>
-                <header class="theme">
-                    <h2>Theme</h2>
-                </header>
-                <div class="score">
-                    <h3>100</h3>
-                </div>
-                <div class="score">
-                    <h3>200</h3>
-                </div>
-                <div class="score">
-                    <h3>300</h3>
-                </div>
-                <div class="score">
-                    <h3>400</h3>
-                </div>
-                <div class="score">
-                    <h3>500</h3>
-                </div>
-            </article>
-
-            <article>
-                <header class="theme">
-                    <h2>Theme</h2>
-                </header>
-                <div class="score">
-                    <h3>100</h3>
-                </div>
-                <div class="score">
-                    <h3>200</h3>
-                </div>
-                <div class="score">
-                    <h3>300</h3>
-                </div>
-                <div class="score">
-                    <h3>400</h3>
-                </div>
-                <div class="score">
-                    <h3>500</h3>
-                </div>
-            </article>
 
             <div id="modalPrincipal">
                 <input type="button" alt="" class="close">

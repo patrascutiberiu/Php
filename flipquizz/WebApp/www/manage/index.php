@@ -1,19 +1,30 @@
 <?php
 session_start();
+
+//on n'est pas charger la page si l'utilisateur n'est pas autenthentifier
+if (empty($_SESSION)) {
+    header(('location: login.php'));
+    exit;
+}
 require_once dirname(__DIR__, 2) . '/Loader.php';
 require_once dirname(__DIR__, 2) . '/Debug.php';
+
+
+
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="../css/manage.css">
+    <script src="../js/manage.js"></script>
+    <title>Index</title>
 </head>
 
-<body>
+<body class="admin">
     <header>
         <h1>Quiz Administration</h1>
     </header>
@@ -47,7 +58,7 @@ require_once dirname(__DIR__, 2) . '/Debug.php';
 
         //equvalent que la ternaire (null coalescing operator) qui fait le meme chose que avant
         //$pageParametreGet =$_GET['page'] ?? 'home';
-        
+
         if ($pageParametreGet === 'index') {
             $pageParametreGet = 'home';
         }

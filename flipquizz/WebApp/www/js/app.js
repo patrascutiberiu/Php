@@ -41,8 +41,15 @@ window.addEventListener('DOMContentLoaded', function () {
                 this.disabled_btn=true;
             },
             gameStarted: function () {
+                var db = new Db();
+                for (const category of this.game.quiz.categories) {
+                    db.loadQuestions(category.category_id, db=>{
+                        category.questions= db.questions;
+                    });
+                }
                 this.game.started = true;
                 this.disabled= false;
+                
             },
             addTeam: function () {
                 if (this.game.teams.length < 4) {
@@ -98,6 +105,7 @@ window.addEventListener('DOMContentLoaded', function () {
                 var db = new Db();
                 db.loadQuestions(_event.target.dataset.id, this.getQuestions);
                 console.log(_event.target.dataset.id);
+
             },
             getQuestions: function (_db) {
                 this.questions = _db.questions;
