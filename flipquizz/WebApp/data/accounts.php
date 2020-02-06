@@ -2,7 +2,7 @@
   0 => 
   array (
     'username' => 'tiberiu',
-    'password' => '$2y$10$G/hGuQcnEWJONzsO7.QHZ.F5FvO2x0KLWjsehGOXSiPuS7NbHrcZa',
-    'email' => 'tr@yh.fr',
+    'password' => '$2y$10$zKyNYdiCSu4DdH8DMN0Jt.GjOuF7jz7DeiFw.SMAEJOzVPPVAJi4u',
+    'email' => 'tr@yah.fr',
   ),
 );

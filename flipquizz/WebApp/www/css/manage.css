@@ -1,12 +1,16 @@
 /* page login.php */
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-body{
-    background: rgb(228, 172, 99);
+
+.login {
+    background-image: url('../img/back2.jpg');
+    background-size: cover;
+
 }
+
 .form {
     position: relative;
     top: 50%;
@@ -14,79 +18,152 @@ body{
     transform: translate(-50%, -50%);
     width: 500px;
     text-align: center;
-    padding: 30px;
-    border: 1px solid #000;
+    padding: 100px 25px;
+    background-color: rgba(255, 255, 255, 0.281);
+    -webkit-box-shadow: 1px 2px 37px 13px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 2px 37px 13px rgba(0,0,0,0.75);
+    box-shadow: 1px 2px 37px 13px rgba(0,0,0,0.75);
 }
 
-.form label{
+.form label {
     font-size: 25px;
-	display:inline-block;
-    margin-bottom: 20px;
+    display: inline-block;
+    margin-bottom: 40px;
     width: 150px;
 }
-.form input{
-	width: 250px;
+
+.form input {
+    width: 200px;
+    height: 30px;
 }
 
 /*page index.php*/
-.admin{
+.admin {
     display: grid;
-    grid-template-areas: 'a a' 'b c';
-    grid-template-rows: 150px 1fr;
-    grid-template-columns: 250px 1fr;
+    grid-template-areas: 'a a''b c';
+    grid-template-rows: 100px 1fr;
+    grid-template-columns: 200px 1fr;
     height: 100vh;
-    
+    background-image: url('../img/back3.jpg');
+    background-size: cover;
 }
-header{
+
+header {
     grid-area: a;
     border-bottom: 3px solid rgb(255, 255, 255);
-    background-color: rgb(228, 172, 99);
+    background-color: #ffffff48;
 
 }
-header h1{
+
+header h1 {
     text-align: center;
     padding: 20px;
+    font-size: 50px;
 }
 
-nav{
+nav {
     grid-area: b;
-    border-right: 3px solid rgb(255, 255, 255);
-    background-color: rgb(228, 172, 99);
+    /*border-right: 3px solid rgb(255, 255, 255);*/
+    background-color: rgba(255, 255, 255, 0.281);
 }
-nav ul{
-    padding: 0;
-    background-color: rgb(236, 193, 136);
+
+nav ul {
+    text-align: center;
+    font-weight: bold;
 }
+
 nav li {
     list-style: none;
-    border: 1px solid #000000;
+    border: 3px solid aliceblue;
+    background-color: #ffffff85;
     padding: 20px;
+    font-size: 25px;
+    margin: 10px;
 }
-nav li a{
-    color: white;
+
+nav li a {
     text-decoration: none;
+    color: rgba(0, 0, 0, 0.829);
 }
-main{
+
+main {
     grid-area: c;
 }
 
 /*page users.php*/
-h2{
-    background-color: #faebd7;
-    height: 50px;
-    padding: 10px;
-    font-size: 25px;
-}
-.users td{
+h2 {
+    background-color: #ffffff85;
     padding: 15px;
+    font-size: 30px;
+}
+table{
+    margin: 20px;
+}
+thead th ,.users td {
+ 
+    padding: 10px 20px;
+    background-color: #ffffff48;
+    font-size: 20px;
 }
 
-.add_users{
+.add_users {
     display: flex;
     flex-direction: row;
+    background-color: #ffffff48;
+    font-size: 20px;
+    align-items: center;
 }
-.add_users label, .add_users input{
+
+.add_users label,
+.add_users input {
     width: 130px;
     margin: 10px;
     padding: 5px;
+}
+.console{
+    background-color: #ffffff85;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+}
+/*page home.php*/
+.home {
+    display: grid;
+    grid-template-areas: 'aa bb cc''dd dd dd';
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 30px;
+    text-align: center;
+}
+
+.quizzes {
+    grid-area: aa;
+    font-size: 25px;
+    background-color: rgba(255, 255, 255, 0.281);
+    margin: 10px;
+    padding: 20px;
+}
+
+.cat {
+    grid-area: bb;
+    font-size: 25px;
+    background-color: rgba(255, 255, 255, 0.281);
+    margin: 10px;
+    padding: 20px;
+}
+
+.question {
+    grid-area: cc;
+    font-size: 25px;
+    background-color: rgba(255, 255, 255, 0.281);
+    margin: 10px;
+    padding: 20px;
+}
+
+.affichage {
+    grid-area: dd;
+    font-size: 25px;
+    background-color: rgba(255, 255, 255, 0.281);
+    margin: 10px;
+    padding: 20px;
 }

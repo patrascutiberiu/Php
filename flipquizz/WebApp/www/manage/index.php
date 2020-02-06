@@ -95,7 +95,13 @@ require_once dirname(__DIR__, 2) . '/Debug.php';
             //include charger le fichier /copie le code de notre paramettre
             require $pageParametreGet;
         } else {
-            echo ('La page demandée n\'existe pas !');
+        ?>
+            <div class="console">
+                <?= 'The page you are looking for does not exist !'; ?>
+            </div>
+
+
+        <?php
         }
 
         ?>

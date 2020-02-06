@@ -72,4 +72,12 @@ class Quizzes extends Model
     public static function updateQuiz(array $quiz){
 
     }
+
+    public function getLatest()
+    {
+        //limite recuperer 1 seul result
+        $stmt = $this->pdo->query("SELECT * FROM ".$this->tableName." ORDER BY ".$this->primaryKey." DESC LIMIT 1;")->fetch();
+
+        return $stmt;
+    }
 }

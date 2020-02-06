@@ -8,6 +8,8 @@ class AccountManager
 {
     protected $filePath;
 
+    protected $filePathSafe;
+
     protected $accounts = [];
 
     public function __construct()
@@ -16,6 +18,8 @@ class AccountManager
         //function dirname is_file
         //instruction if else 
         $this->filePath = \dirname(__DIR__) . '/data/accounts.php';
+
+        $this->filePathSafe =dirname(__DIR__). '/data/accounts.safe.php';
 
         //existance dun fichier   \is_dir vers un repertooire
         if (\is_file($this->filePath)) {
@@ -31,6 +35,10 @@ class AccountManager
      */
     public function save()
     {
+
+        //on va sauvgarder le fichier actuel sous un autre nomme d'abord
+        //@ ignorer une erreur mais l'erreur est bien sauvgarder
+        @\copy($this->filePath, $this->filePathSafe);
 
         $content = '<?php return ';
 
@@ -170,9 +178,14 @@ class AccountManager
      */
     public function removeUser(string $_username): bool
     {
-        $user = $this->getUser($_username);
+        // $user = $this->getUser($_username);
 
-        if ($user === null) {
+        // if ($user === null) {
+        //     return false;
+        // }
+
+        //ou sizeof la taille d'un tableau mais count est proconniser
+        if (count($this->accounts) < 2) {
             return false;
         }
 

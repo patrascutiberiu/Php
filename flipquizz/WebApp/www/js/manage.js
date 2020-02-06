@@ -41,7 +41,7 @@ window.addEventListener('DOMContentLoaded', function () {
                 //il faut envoie le params pour le post 
                 ajx.send(params);
             }
-          user.remove(); 
+          user.remove();
         });
         
     }

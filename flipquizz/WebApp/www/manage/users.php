@@ -31,8 +31,8 @@
             // echo $user['username'];
             // echo '</pre>';
         ?>
-            <tbody>
-                <tr class="users">
+            <tbody class="users">
+                <tr>
                     <td><?= $user['username']; ?></td>
                     <td><?= $user['email']; ?></td>
                     <td>
@@ -54,14 +54,23 @@
     //session_start();
 
     if (!empty($_SESSION['error'])) {
-        echo $_SESSION['error'];
+    ?>
+        <div class="console">
+            <?= $_SESSION['error']; ?>
+        </div>
+
+    <?php
         //toujour mettre a null pour vider la session
         $_SESSION['error'] = null;
         //unset'$_SESSION['error'];
     }
 
     if (!empty($_SESSION['success'])) {
-        echo $_SESSION['success'];
+    ?>
+        <div class="console">
+            <?= $_SESSION['success']; ?>
+        </div>
+    <?php
         $_SESSION['success'] = null;
     }
 

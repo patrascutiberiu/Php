@@ -80,5 +80,16 @@ abstract class Model
         }
     }
 
+    public function count()
+    {
+        $stmt = $this->pdo->query("SELECT COUNT(*) as nb FROM ".$this->tableName.";");
+
+        $result = $stmt->fetch();
+
+        //recouperer le nombre par son alias qu'on a declarer dans la requette
+        //d($result['nb']);
+
+        return $result['nb'];
+    }
 
 }
