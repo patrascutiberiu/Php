@@ -24,7 +24,7 @@ require_once dirname(__DIR__, 2) . '/Debug.php';
     <title>Index</title>
 </head>
 
-<body class="admin">
+<body id="admin">
     <header>
         <h1>Quiz Administration</h1>
     </header>
@@ -35,7 +35,7 @@ require_once dirname(__DIR__, 2) . '/Debug.php';
                 <a href="?page=users">Users</a>
             </li>
             <li>
-                <a href="?=page=quizzes">Quizzes</a>
+                <a href="?page=quizzes">Quizzes</a>
             </li>
             <li>
                 <a href="index.php?page=categories">Categories</a>

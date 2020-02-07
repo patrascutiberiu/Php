@@ -61,7 +61,7 @@
                 </article>
                 <article class="start">
                     <input type="button" id="btnStart" value="Play the quiz"
-                        :disabled="game.teams.length > 0 ? false : true " v-on:click='gameStarted' >
+                        :disabled="game.teams.length > 0 ? false : true " v-on:click='gameStarted'>
                 </article>
             </div>
         </main>
@@ -71,7 +71,7 @@
         <section class="right" v-if="game.started">
             <!-- <input type="button" class="back_main" > -->
             <article v-for="category in game.quiz.categories">
-                <header class="theme" >
+                <header class="theme">
                     <h2>{{ category.category_name}}</h2>
                 </header>
                 <div class="score" v-for='question in category.questions'>

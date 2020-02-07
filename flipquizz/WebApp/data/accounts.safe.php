@@ -23,10 +23,4 @@
     'password' => '$2y$10$UjwEwo0H2vw/IdXvdUGFv.tF0gM/mbp2KQF..5F/oFtW2Db48FhRq',
     'email' => 'aa@hg.fr',
   ),
-  5 => 
-  array (
-    'username' => 'aaaaaa',
-    'password' => '$2y$10$ynSD1jed2QqcgrNLRbv1OeQCDNNzklhYyerL6Qn.gmoM2.2RPjmcW',
-    'email' => 'aa@gf.fr',
-  ),
 );

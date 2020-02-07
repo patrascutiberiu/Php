@@ -38,7 +38,7 @@
 }
 
 /*page index.php*/
-.admin {
+#admin {
     display: grid;
     grid-template-areas: 'a a''b c';
     grid-template-rows: 100px 1fr;
@@ -91,33 +91,47 @@ main {
 }
 
 /*page users.php*/
+#users{
+    display: flex;
+    flex-direction: row;
+
+}
+.users_add{
+    flex: 1;
+}
+.users_list{
+    flex: 1;
+
+}
 h2 {
     background-color: #ffffff85;
     padding: 15px;
     font-size: 30px;
+    text-align: center;
 }
 table{
-    margin: 20px;
+    margin: auto;
+    padding: 20px;
+    
 }
 thead th ,.users td {
- 
+
     padding: 10px 20px;
     background-color: #ffffff48;
     font-size: 20px;
 }
 
-.add_users {
+.form_users {
     display: flex;
-    flex-direction: row;
-    background-color: #ffffff48;
+    flex-direction: column;
     font-size: 20px;
     align-items: center;
+    padding: 20px;
 }
 
-.add_users label,
-.add_users input {
+.form_users label,
+.form_users input {
     width: 130px;
-    margin: 10px;
     padding: 5px;
 }
 .console{
@@ -127,7 +141,7 @@ thead th ,.users td {
     text-align: center;
 }
 /*page home.php*/
-.home {
+#home {
     display: grid;
     grid-template-areas: 'aa bb cc''dd dd dd';
     grid-template-rows: auto 1fr;
@@ -136,34 +150,38 @@ thead th ,.users td {
     text-align: center;
 }
 
-.quizzes {
+.count_quizzes {
     grid-area: aa;
-    font-size: 25px;
+    font-size: 30px;
     background-color: rgba(255, 255, 255, 0.281);
     margin: 10px;
     padding: 20px;
+    color: white;
 }
 
-.cat {
+.count_categories {
     grid-area: bb;
-    font-size: 25px;
+    font-size: 30px;
     background-color: rgba(255, 255, 255, 0.281);
     margin: 10px;
     padding: 20px;
+    color: white;
 }
 
-.question {
+.count_questions {
     grid-area: cc;
-    font-size: 25px;
+    font-size: 30px;
     background-color: rgba(255, 255, 255, 0.281);
     margin: 10px;
     padding: 20px;
+    color: white;
 }
 
 .affichage {
     grid-area: dd;
-    font-size: 25px;
+    font-size: 30px;
     background-color: rgba(255, 255, 255, 0.281);
     margin: 10px;
     padding: 20px;
+    color: white;
 }
