@@ -12,9 +12,13 @@
                 <?= $_SESSION['error']; ?>
             </div>
 
-        <?php
+            <?php
             //toujour mettre a null pour vider la session
-            $_SESSION['error'] = null;
+            ?>
+            <div class="console">
+                <?= $_SESSION['error'] = null; ?>
+            </div>
+        <?php
             //unset'$_SESSION['error'];
         }
 
@@ -65,7 +69,7 @@
                         <a id="passwordShow" href="#">Show/Hide</a></label>
                     <label for="email"><span>Email *</span>
                         <input type="email" name="email" id="email" required></label>
-                    <input type="submit" value="Valid">
+                    <input type="submit" value="Add User">
                 </fieldset>
             </form>
     </div>
@@ -98,7 +102,7 @@
                 // echo $user['username'];
                 // echo '</pre>';
             ?>
-                <tbody class="users">
+                <tbody>
                     <tr>
                         <td><?= $user['username']; ?></td>
                         <td><?= $user['email']; ?></td>

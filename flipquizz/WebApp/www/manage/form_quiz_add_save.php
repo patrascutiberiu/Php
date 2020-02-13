@@ -13,7 +13,7 @@ $newQuiz = [
 ];
 
 if (empty($_POST['quiz_theme'])) {
-    $_SESSION['error'] = "Quiz Theme is mandatary";
+    $_SESSION['error'] = "Quiz Theme is mandatory";
     header('location: '.$return_url);
     exit();
 }

@@ -32,11 +32,9 @@
 
             foreach ($categories->getAll() as $category) {
                 echo '<tr>';
-
                 echo '<td>' . $category['category_id'] . '</td>';
                 echo '<td>' . $category['category_name'] . '</td>';
                 echo '<td>' . $category['category_description'] . '</td>';
-
                 echo '</tr>';
             }
 
@@ -49,7 +47,7 @@
 <?php
 // Implémenter le formulaire d'ajout de catégorie
 // Le formulaire doit afficher une liste déroulante permettant de lier la catégorie à un quiz existant.
-// Boucler sur les quzi existants pour créer chaque option du select
+// Boucler sur les quiz existants pour créer chaque option du select
 // <select name="quiz_id">
 // foreach(quizzes) 
 // <option value="{quiz_id}">{quiz_theme}</option>

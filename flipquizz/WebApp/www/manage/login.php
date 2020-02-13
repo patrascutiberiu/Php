@@ -21,8 +21,16 @@ if (!empty($_POST['username']) && !empty($_POST['password'])) {
     if ($accounts->login($username, $password)) {
         $_SESSION['user'] = $username;
         header('location: index.php');
+
         //obligatoir de arreter le script pour ne pas continuer
         exit;
+    } else {
+?>
+        <div class="console">
+            <?php echo 'Username or password invalid'; ?>
+        </div>
+<?php
+
     }
 }
 
@@ -42,15 +50,19 @@ if (!empty($_POST['username']) && !empty($_POST['password'])) {
 </style>
 
 <body class="login">
-    <form action="" method="post" class="form_login">
-        <label for="username">Username</label>
-        <input type="text" name="username" id="username">
-        <br>
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password">
-        <br>
-        <input type="submit" value="Sign in">
-    </form>
+    <fieldset class="form_login">
+        <legend>Login</legend>
+
+        <form action="" method="post">
+            <label for="username"><span>Username * </span>
+                <input type="text" name="username" id="username"></label>
+            <label for="password"><span>Password * </span>
+                <input type="password" name="password" id="password"></label>
+            <input type="submit" value="Sign in">
+        </form>
+
+    </fieldset>
+
 </body>
 
 </html>
