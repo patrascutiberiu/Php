@@ -37,20 +37,20 @@ class Questions extends Model
 
     //     return $result;
     // }
-    
+
     public function __construct()
     {
-        parent::__construct('fp_questions','category_id');
+        parent::__construct('fp_questions', 'category_id');
     }
 
     public function getCategoryQuestions(int $_cat_id)
     {
         try {
-            $sql ="SELECT * FROM ".$this->tableName." WHERE category_id=:cat_id;";
+            $sql = "SELECT * FROM " . $this->tableName . " WHERE category_id=:cat_id;";
 
             $stmt = $this->pdo->prepare($sql);
 
-            $vars = [':cat_id' =>$_cat_id];
+            $vars = [':cat_id' => $_cat_id];
 
             $result = [];
 
@@ -60,13 +60,13 @@ class Questions extends Model
             $stmt->closeCursor();
 
             return $result;
-
         } catch (\Exception $ex) {
             exit($ex->getMessage());
         }
     }
 
-    public static function insertQuestions(array $question){
+    public static function insertQuestions(array $question)
+    {
         $sql = "INSERT INTO fp_questions (question_content, question_answer, question_level)
         VALUES(:question_content, :question_answer, :question_level);";
 
@@ -84,10 +84,10 @@ class Questions extends Model
 
         $stmt->closeCursor();
 
-        return $result; 
+        return $result;
     }
 
-    public static function updateQuestions(array $question){
-
+    public static function updateQuestions(array $question)
+    {
     }
 }

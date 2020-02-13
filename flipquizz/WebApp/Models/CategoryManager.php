@@ -2,14 +2,15 @@
 
 namespace Models;
 
-class CategoryManager extends Categories{
-    
+class CategoryManager extends Categories
+{
+
     /**
      * @var PDO
      */
     protected $db;
 
-    public function addCategory(array $_newCategory) :bool
+    public function addCategory(array $_newCategory): bool
     {
         $sql = "INSERT INTO fp_categories (category_name, category_description, quiz_id)
         VALUES ( :category_name, :category_description, :quiz_id);";
@@ -24,7 +25,7 @@ class CategoryManager extends Categories{
 
     public function getCategoryQuiz()
     {
-        $sql = "SELECT fp_categories.*, fp_quizzes.quiz_theme FROM fp_categories INNER JOIN fp_quizzes on fp_categories.quiz_id = fp_quizzes.quiz_id";
+        $sql = "SELECT fp_categories.*, fp_quizzes.quiz_theme FROM fp_categories INNER JOIN fp_quizzes on fp_categories.quiz_id = fp_quizzes.quiz_id;";
 
         return $this->pdo->query($sql)->fetchAll();
     }

@@ -79,7 +79,6 @@ require_once dirname(__DIR__, 2) . '/Debug.php';
 
         // $pageParametreGet =!isset($_GET['page']) ? $_GET['page'] :'home';
 
-
         // if (array_key_exists('page', $_GET)) {
 
         // }

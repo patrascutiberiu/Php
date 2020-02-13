@@ -19,7 +19,7 @@ class AccountManager
         //instruction if else 
         $this->filePath = \dirname(__DIR__) . '/data/accounts.php';
 
-        $this->filePathSafe =dirname(__DIR__). '/data/accounts.safe.php';
+        $this->filePathSafe = dirname(__DIR__) . '/data/accounts.safe.php';
 
         //existance dun fichier   \is_dir vers un repertooire
         if (\is_file($this->filePath)) {

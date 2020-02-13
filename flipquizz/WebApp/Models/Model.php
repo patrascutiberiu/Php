@@ -23,7 +23,7 @@ abstract class Model
     protected function __construct(string $_table, string $_pk)
     {
         $this->tableName = $_table;
-        
+
         $this->primaryKey = $_pk;
 
         $this->pdo = Db::getInstance(); // Récupère la connexion PDO
@@ -35,7 +35,7 @@ abstract class Model
      */
     public function getAll()
     {
-        $sql = ("SELECT * FROM ".$this->tableName);
+        $sql = ("SELECT * FROM " . $this->tableName);
 
         /** @var $stmt PDOStatement */
         $stmt = $this->pdo->query($sql);
@@ -56,25 +56,24 @@ abstract class Model
     {
         try {
 
-            $sql = ("SELECT * FROM ".$this->tableName." WHERE ".$this->primaryKey." =:id;");
+            $sql = ("SELECT * FROM " . $this->tableName . " WHERE " . $this->primaryKey . " =:id;");
 
             $vars = [
                 ':id' => $_id
             ];
 
             $stmt = Db::getInstance()->prepare($sql);
-            
-            $result =null;
+
+            $result = null;
 
             if ($stmt->execute($vars)) {
-                
+
                 $result = $stmt->fetchAll();
             }
 
             $stmt->closeCursor(); // ferme le courseur de la requête /!\ obligatoir pour debloquer la base de donnée
 
             return $result;
-
         } catch (\Throwable $th) {
             echo $th;
         }
@@ -82,7 +81,7 @@ abstract class Model
 
     public function count()
     {
-        $stmt = $this->pdo->query("SELECT COUNT(*) as nb FROM ".$this->tableName.";");
+        $stmt = $this->pdo->query("SELECT COUNT(*) as nb FROM " . $this->tableName . ";");
 
         $result = $stmt->fetch();
 
@@ -91,5 +90,4 @@ abstract class Model
 
         return $result['nb'];
     }
-
 }

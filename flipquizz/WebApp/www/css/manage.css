@@ -6,7 +6,7 @@
 }
 
 .login {
-    background-image: url("../img/back2.jpg");
+    background-image: url("../img/back4.jpg");
 }
 
 .form_login {
@@ -32,8 +32,10 @@
     grid-template-rows: 100px 1fr;
     grid-template-columns: 200px 1fr;
     height: 100vh;
-    background-image: url('../img/back3.jpg');
-    background-size: 100% 100%;
+    /*background-image: url('../img/136448.jpg');
+    background-size: 100% 100%;*/
+    background-color: rgba(47, 40, 40, 0.924);
+    /*background: linear-gradient(to right, #c7b0b0a4, rgba(255, 255, 0, 0.685));*/
 }
 
 header {
@@ -78,9 +80,6 @@ main {
     grid-area: c;
 }
 
-/*page users.php*/
-
-
 h2 {
     background-color: #ffffff85;
     padding: 15px;
@@ -94,9 +93,11 @@ table {
     border-collapse: collapse;
     width: 100%;
 }
-th{
+
+th {
     background-color: rgba(184, 135, 11, 0.514);
 }
+
 th,
 td {
     text-align: left;
@@ -106,7 +107,8 @@ td {
 tr:nth-child(2n) {
     background-color: #f2f2f2;
 }
-tr:nth-child(2n+1){
+
+tr:nth-child(2n+1) {
     background-color: rgb(143, 143, 139);
 }
 
@@ -150,9 +152,9 @@ fieldset {
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
-    margin: 30px;
+    margin: 20px;
     border: 1px solid #FFD2D2;
-    padding: 30px;
+    padding: 20px;
     background: rgba(255, 244, 244, 0.233);
 
 }

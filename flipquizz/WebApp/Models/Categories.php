@@ -37,19 +37,19 @@ class Categories extends Model
 
     //     return $result;
     // }
-    
+
     public function __construct()
     {
-        parent::__construct('fp_categories','quiz_id');
+        parent::__construct('fp_categories', 'quiz_id');
     }
 
     public function getQuizCategories(int $_quiz_id)
     {
-        try {           
-            $sql = "SELECT * FROM ".$this->tableName." WHERE quiz_id=:quiz_id;";
+        try {
+            $sql = "SELECT * FROM " . $this->tableName . " WHERE quiz_id=:quiz_id;";
 
             //:n'est pas obligatoire
-            $vars= [
+            $vars = [
                 ':quiz_id' => $_quiz_id
             ];
 
@@ -58,24 +58,23 @@ class Categories extends Model
 
             $result = [];
 
-            $success= $stmt->execute($vars);
-            
-            if($success)
-            {
+            $success = $stmt->execute($vars);
+
+            if ($success) {
                 $result = $stmt->fetchAll();
             }
 
             $stmt->closeCursor();
 
             return $result;
-
         } catch (\Exception $ex) {
             exit($ex->getMessage());
         }
     }
 
 
-    public static function insertQuestions(array $category){
+    public static function insertQuestions(array $category)
+    {
         $sql = "INSERT INTO fp_categories (category_name, category_description)
         VALUES(:category_name, :category_description);";
 
@@ -92,10 +91,10 @@ class Categories extends Model
 
         $stmt->closeCursor();
 
-        return $result; 
+        return $result;
     }
 
-    public static function updateQuestions(array $category){
-
+    public static function updateQuestions(array $category)
+    {
     }
 }

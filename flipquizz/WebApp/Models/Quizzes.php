@@ -42,13 +42,14 @@ class Quizzes extends Model
 
         return $result;
     }
-    
+
     public function __construct()
     {
-        parent::__construct('fp_quizzes','quiz_id');
+        parent::__construct('fp_quizzes', 'quiz_id');
     }
 
-    public static function insertQuiz(array $quiz){
+    public static function insertQuiz(array $quiz)
+    {
         $sql = "INSERT INTO fp_quizzes (quiz_theme, quiz_textcolor, quiz_backcolor)
         VALUES(:quiz_theme, :quiz_textcolor, :quiz_backcolor);";
 
@@ -66,17 +67,17 @@ class Quizzes extends Model
 
         $stmt->closeCursor();
 
-        return $result; 
+        return $result;
     }
 
-    public static function updateQuiz(array $quiz){
-
+    public static function updateQuiz(array $quiz)
+    {
     }
 
     public function getLatest()
     {
         //limite recuperer 1 seul result
-        $stmt = $this->pdo->query("SELECT * FROM ".$this->tableName." ORDER BY ".$this->primaryKey." DESC LIMIT 1;")->fetch();
+        $stmt = $this->pdo->query("SELECT * FROM " . $this->tableName . " ORDER BY " . $this->primaryKey . " DESC LIMIT 1;")->fetch();
 
         return $stmt;
     }
