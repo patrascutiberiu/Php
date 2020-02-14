@@ -6,7 +6,8 @@
 }
 
 .login {
-    background-image: url("../img/back4.jpg");
+    background-image: url("../img/background.jpg");
+    background-size: cover;
 }
 
 .form_login {
@@ -32,16 +33,16 @@
     grid-template-rows: 100px 1fr;
     grid-template-columns: 200px 1fr;
     height: 100vh;
-    /*background-image: url('../img/136448.jpg');
-    background-size: 100% 100%;*/
-    background-color: rgba(47, 40, 40, 0.924);
+    background-image: url('../img/background.jpg');
+    background-size: 100% 100%;
+    
     /*background: linear-gradient(to right, #c7b0b0a4, rgba(255, 255, 0, 0.685));*/
 }
 
 header {
     grid-area: a;
     border-bottom: 3px solid rgb(255, 255, 255);
-    background-color: #ffffff48;
+    background-color: #1D435A;
 
 }
 
@@ -49,12 +50,13 @@ header h1 {
     text-align: center;
     padding: 20px;
     font-size: 50px;
+    color: white;
 }
 
 nav {
     grid-area: b;
     /*border-right: 3px solid rgb(255, 255, 255);*/
-    background-color: rgba(255, 255, 255, 0.281);
+    background-color: #1D435A;
 }
 
 nav ul {
@@ -64,7 +66,7 @@ nav ul {
 
 nav li {
     list-style: none;
-    border: 3px solid aliceblue;
+    border: 2px solid white;
     background-color: #ffffff85;
     padding: 20px;
     font-size: 25px;
@@ -86,7 +88,24 @@ h2 {
     font-size: 30px;
     text-align: center;
 }
+i{
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+    margin: 5px;
+}
+i:hover{
+    color: rgba(173, 50, 50, 0.747);
+}
+a{
+    color: black;
+    font-size: 20px;    
+    text-decoration: none;
+    margin: 5px;
+}
+a:hover{
+    color: rgba(173, 50, 50, 0.747);
 
+}
 table {
     margin: auto;
     padding: 20px;
@@ -95,13 +114,14 @@ table {
 }
 
 th {
-    background-color: rgba(184, 135, 11, 0.514);
+    background-color: #b8870b83;
 }
 
 th,
 td {
     text-align: left;
     padding: 8px;
+    font-size: 20px;
 }
 
 tr:nth-child(2n) {
@@ -113,7 +133,7 @@ tr:nth-child(2n+1) {
 }
 
 form {
-    margin: 20px auto;
+    margin: 0px auto;
     width: 60%;
 }
 
@@ -180,7 +200,7 @@ p {
 
 .console {
     background-color: #ffffff85;
-    font-size: 20px;
+    font-size: 30px;
     padding: 20px;
     text-align: center;
 }

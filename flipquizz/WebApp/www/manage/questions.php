@@ -1,4 +1,4 @@
-<h2>Question Managment</h2>
+<h2>Question Management</h2>
 <p>Here you can see all the questions associated with your quizzes.</p>
 
 <form action="form_question_add_save.php" method="post">
@@ -50,6 +50,8 @@
             <th>Content</th>
             <th>Answer</th>
             <th>Level</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
         <?php
 
@@ -63,6 +65,8 @@
             echo '<td>' . $question['question_content'] . '</td>';
             echo '<td>' . $question['question_answer'] . '</td>';
             echo '<td>' . $question['question_level'] . '</td>';
+            echo '<td><a href="#">Edit</a></td>';
+            echo '<td><a href="#">Delete</a></td>';
             echo '</tr>';
         }
         ?>
