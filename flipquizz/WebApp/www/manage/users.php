@@ -1,4 +1,4 @@
-<h2>Add User</h2>
+<h2>User Management</h2>
 <?php
 //il est deja demarrer sur l'index.php
 //session_start();
@@ -47,7 +47,7 @@ if (!empty($_GET['edit'])) {
                 <input type="text" name="username" id="username" required></label>
             <label for="password"><span>Password *</span>
                 <input id="passwordField" type="password" value="" id="user_password" name="password" required>
-                <a id="passwordShow" href="#">Show/Hide</a></label>
+                <a id="passwordShow" href="#"><i class="fa fa-eye" aria-hidden="true"></i></a></label>
             <label for="email"><span>Email *</span>
                 <input type="email" name="email" id="email" required></label>
             <input type="submit" value="Valid">
@@ -63,7 +63,7 @@ if (!empty($_GET['edit'])) {
                 <input type="text" name="username" id="username" required></label>
             <label for="password"><span>Password *</span>
                 <input id="passwordField" type="password" value="" id="user_password" name="password" required>
-                <a id="passwordShow" href="#">Show/Hide</a></label>
+                <a id="passwordShow" href="#"><i class="fa fa-eye" aria-hidden="true"></i></a></label>
             <label for="email"><span>Email *</span>
                 <input type="email" name="email" id="email" required></label>
             <input type="submit" value="Add User">
@@ -98,16 +98,14 @@ if (!empty($_GET['edit'])) {
             // echo $user['username'];
             // echo '</pre>';
         ?>
-            <tbody>
-                <tr>
-                    <td><?= $user['username']; ?></td>
-                    <td><?= $user['email']; ?></td>
-                    <td>
-                        <a href="?page=usersedit=<?= $user['username']; ?>">Edit</a>
-                        <a href="#" data-username="<?= $user['username']; ?>">Delete</a>
-                    </td>
-                </tr>
-            </tbody>
+            <tr>
+                <td><?= $user['username']; ?></td>
+                <td><?= $user['email']; ?></td>
+                <td>
+                    <a href="?page=usersedit=<?= $user['username']; ?>">Edit</a>
+                    <a href="#" data-username="<?= $user['username']; ?>">Delete</a>
+                </td>
+            </tr>
         <?php
         }
         ?>

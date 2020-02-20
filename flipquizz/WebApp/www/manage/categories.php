@@ -1,4 +1,4 @@
-<h2>Categories Managment</h2>
+<h2>Categories Management</h2>
 <p>Here you can see all the categories associated with your quizzes.</p>
 
 <form action="form_category_add_save.php" method="post">
@@ -33,6 +33,8 @@
             <th>Id</th>
             <th>Name</th>
             <th>Description</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
         <?php
         // Lister les catégories existantes.
@@ -48,6 +50,8 @@
             echo '<td>' . $category['category_id'] . '</td>';
             echo '<td>' . $category['category_name'] . '</td>';
             echo '<td>' . $category['category_description'] . '</td>';
+            echo '<td><a href="#">Edit</a></td>';
+            echo '<td><a href="#">Delete</a></td>';
             echo '</tr>';
         }
 

@@ -1,9 +1,9 @@
- <h2>Quizzes Managment</h2>
+ <h2>Quizzes Management</h2>
  <p>Here you can see and manage your quizzes and add new ones.</p>
 
  <fieldset>
      <legend>Add new Quiz</legend>
-     <form action="form_quiz_add_save.php" method="post" class="form_users">
+     <form action="form_quiz_add_save.php" method="post">
          <label for="quiz_theme"><span>Quiz Theme *</span>
              <input type="text" name="quiz_theme" id="" required></label>
          <label for="quiz_textcolor"><span>Quiz Text Color *</span>
@@ -22,6 +22,8 @@
              <th>Theme</th>
              <th>TextColor</th>
              <th>BackColor</th>
+             <th>Edit</th>
+             <th>Delete</th>
          </tr>
          <?php
 
@@ -36,6 +38,8 @@
                 echo '<td>' . $quiz['quiz_theme'] . '</td>';
                 echo '<td>' . $quiz['quiz_textcolor'] . '</td>';
                 echo '<td>' . $quiz['quiz_backcolor'] . '</td>';
+                echo '<td><a href="#">Edit</a></td>';
+                echo '<td><a href="#">Delete</a></td>';
 
                 echo '</tr>';
             }
