@@ -1,0 +1,88 @@
+table {
+    margin: auto;
+    padding: 20px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    background-color: rgba(184, 135, 11, 0.514);
+}
+
+th,
+td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(2n) {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(2n+1) {
+    background-color: rgb(143, 143, 139);
+}
+
+form {
+    margin: 20px auto;
+    width: 60%;
+}
+
+label {
+    display: block;
+    padding: 20px;
+}
+
+label>span {
+    float: left;
+    width: 200px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+form input[type="submit"] {
+    transition: all ease .8s;
+    padding: 10px 60px;
+    margin: 20px;
+    font-size: 20px;
+}
+
+input[type=text],
+input[type=email],
+input[type=password],
+input[type=number],
+select {
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    padding: 5px 8px 5px 8px;
+    width: 50%;
+}
+
+fieldset {
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    margin: 20px;
+    border: 1px solid #FFD2D2;
+    padding: 20px;
+    background: rgba(255, 244, 244, 0.233);
+
+}
+
+fieldset legend {
+    color: rgb(53, 50, 51);
+    border-radius: 5px 5px 0px 0px;
+    -webkit-border-radius: 5px 5px 0px 0px;
+    -moz-border-radius: 5px 5px 0px 0px;
+    background: #FFF4F4;
+    padding: 0px 8px 3px 8px;
+    font-weight: normal;
+    font-size: 30px;
+}
+.console {
+    background-color: #ffffff85;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+}
