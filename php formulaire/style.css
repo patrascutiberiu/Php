@@ -1,3 +1,10 @@
+body{
+    background-color: rgba(13, 13, 56, 0.609);
+}
+h1{
+    color: white;
+    text-align: center;
+}
 table {
     margin: auto;
     padding: 20px;

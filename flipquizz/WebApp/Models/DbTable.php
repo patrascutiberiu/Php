@@ -1,5 +1,8 @@
 <?php
-abstract class Db
+
+use Models\Db;
+
+abstract class DbTable extends Db
 {
     protected $tableName;
 

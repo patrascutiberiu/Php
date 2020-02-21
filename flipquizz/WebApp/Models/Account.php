@@ -32,7 +32,7 @@ class Account
     //set une metode de modification et get de acceder
     public function setPassword(string $_pass)
     {
-        //cifrer le lot de passe prem elem nootre pass lautre une consta,te
+        //ciffrer le lot de passe prem elem nootre pass lautre une constante
         //super pour ciffrer le mot de passe
         $this->password = \password_hash($_pass, PASSWORD_BCRYPT);
     }

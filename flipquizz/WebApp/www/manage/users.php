@@ -103,7 +103,7 @@ if (!empty($_GET['edit'])) {
                 <td><?= $user['email']; ?></td>
                 <td>
                     <a href="?page=usersedit=<?= $user['username']; ?>">Edit</a>
-                    <a href="#" data-username="<?= $user['username']; ?>">Delete</a>
+                    <a href="form_user_delete_save.php" data-username="<?= $user['username']; ?>">Delete</a>
                 </td>
             </tr>
         <?php

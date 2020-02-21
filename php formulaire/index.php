@@ -31,17 +31,17 @@ if (!empty($_SESSION['success'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Formulaire contact</title>
 </head>
 
 <body>
-
+    <h1>Formulaire d'inscription</h1>
     <fieldset>
-        <legend>Add new Quiz</legend>
+        <legend>Ajouter un nouveau contact</legend>
         <form action="formulaire_add_save.php" method="post">
-            <label for="name"><span>Name *</span>
-                <input type="text" name="name" id="" required></label>
-            <label for="password"><span>Password *</span>
+            <label for="name"><span>Nom / Prenom *</span>
+                <input type="text" name="name" id="name"></label>
+            <label for="password"><span>Mot de passe *</span>
                 <input type="password" name="password"></label>
             <label for="email"><span>Email *</span>
                 <input type="email" name="email"></label>
@@ -55,8 +55,10 @@ if (!empty($_SESSION['success'])) {
         <table>
             <thead>
                 <tr>
-                    <th>Username</th>
+                    <th>Nom / Prenom</th>
                     <th>Email</th>
+                    <th>Edition</th>
+                    <th>Supression</th>
                 </tr>
             </thead>
             <?php
@@ -68,12 +70,16 @@ if (!empty($_SESSION['success'])) {
                 <tr>
                     <td><?= $contact['contact_name'] ?></td>
                     <td><?= $contact['contact_email'] ?></td>
+                    <td><a href="#" data-username="<?= $contact['contact_name'] ?>">Editer</a></td>
+                    <td><a href="formulaire_delete.php" data-name="<?= $contact['contact_name'] ?>">Supprimer</a></td>
                 </tr>
             <?php
             }
             ?>
         </table>
     </fieldset>
+
+
 </body>
 
 </html>
