@@ -8,7 +8,7 @@ require_once 'Debug.php';
 $formulaire = new FormulaireManager;
 
 $contact = $_POST['name'] ?? null;
-d($contact);
+
 if (!empty($contact)) {
     if ($_SESSION['name'] === $contact) {
         echo "0";
@@ -21,4 +21,4 @@ if (!empty($contact)) {
     }
 }
 
-echo "afara";
+echo "dehors";

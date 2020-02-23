@@ -38,15 +38,45 @@ if (!empty($_SESSION['success'])) {
     <h1>Formulaire d'inscription</h1>
     <fieldset>
         <legend>Ajouter un nouveau contact</legend>
-        <form action="formulaire_add_save.php" method="post">
-            <label for="name"><span>Nom / Prenom *</span>
-                <input type="text" name="name" id="name"></label>
-            <label for="password"><span>Mot de passe *</span>
-                <input type="password" name="password"></label>
-            <label for="email"><span>Email *</span>
-                <input type="email" name="email"></label>
-            <input type="submit" value="Add Contact">
-        </form>
+        <?php
+        if (!empty($_GET['edit'])) {
+            $userEdit = basename($_GET['edit']);
+
+            $formulaireContact = new FormulaireManager;
+
+            $contactEdit = $formulaireContact->updateContact($userEdit);
+
+            if (empty($userEdit)) {
+                header('location: index.php');
+            }
+
+        ?>
+            <form action="#" method="post">
+                <label for="name"><span>Nom / Prenom *</span>
+                    <input type="text" name="name" id="name" value="<?= $contactEdit['name'] ?>"></label>
+                <label for="password"><span>Mot de passe *</span>
+                    <input type="password" name="password" value="<? $contactEdit['password'] ?>"></label>
+                <label for="email"><span>Email *</span>
+                    <input type="email" name="email" value="<? $contactEdit['email'] ?>"></label>
+                <input type="submit" value="Edit Contact">
+            </form>
+
+        <?php
+        } else {
+        ?>
+            <form action="formulaire_add_save.php" method="post">
+                <label for="name"><span>Nom / Prenom *</span>
+                    <input type="text" name="name" id="name"></label>
+                <label for="password"><span>Mot de passe *</span>
+                    <input type="password" name="password"></label>
+                <label for="email"><span>Email *</span>
+                    <input type="email" name="email"></label>
+                <input type="submit" value="Add Contact">
+            </form>
+        <?php
+        }
+        ?>
+
     </fieldset>
 
     <fieldset>

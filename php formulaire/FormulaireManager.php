@@ -28,11 +28,12 @@ class FormulaireManager extends Formulaire
 
     public function removeContact(string $contact)
     {
-        $sql = "DELETE FROM contact WHERE contact_id = ?";
+        $contact = $_POST['contact_id'];
+
+        $sql = "DELETE FROM contact WHERE contact_id =" . $contact . ";";
 
         $stmt = Db::getDb()->prepare($sql);
 
-        $contact=$_POST['name'];
 
         // $var = [
         //     'contact_name' => $contact
@@ -45,6 +46,28 @@ class FormulaireManager extends Formulaire
         $stmt->closeCursor();
 
         return $result;
+    }
 
+    public function updateContact(string $contact)
+    {
+        $sql = "UPDATE contact 
+        SET contact_name = :contact_name, contact_password = :contact_password, contact_email = :contact_email 
+        WHERE contact_id = :contact_id;";
+
+        $stmt = Db::getDb()->prepare($sql);
+
+        $vars = [
+            'contact_name' => $_POST['name'],
+            'contact_password' => $_POST['password'],
+            'contact_email' => $_POST['email']
+        ];
+
+        $stmt->execute($vars);
+
+        $result = $stmt->fetch();
+
+        $stmt->closeCursor()();
+
+        return $result;
     }
 }
