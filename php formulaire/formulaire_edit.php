@@ -7,11 +7,10 @@ require_once 'Debug.php';
 
 $formulaire = new FormulaireManager;
 
-$contact = $_GET['id'] ?? null;
-
-
+$contact = $_GET['edit'] ?? null;
+d($contact);
 if (!empty($contact)) {
-    if ($formulaire->removeContact($contact)) {
+    if ($formulaire->updateContact($contact)) {
         echo "1";
         exit;
     }

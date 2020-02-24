@@ -32,36 +32,39 @@ class FormulaireManager extends Formulaire
 
         $sql = "DELETE FROM contact WHERE contact_id =" . $contact . ";";
 
-        $stmt = Db::getDb()->prepare($sql);
+        //
+        $stmt = Db::getDb()->query($sql);
 
 
-        // $var = [
-        //     'contact_name' => $contact
-        // ];
+        $var = [
+            'contact_id' => $contact
+        ];
 
-        $stmt->execute(array($contact));
+        $stmt->execute($var);
 
         $result = $stmt->fetch();
 
         $stmt->closeCursor();
 
+        d($result);
         return $result;
     }
 
     public function updateContact(string $contact)
     {
+        $contact = intval($contact);
         $sql = "UPDATE contact 
         SET contact_name = :contact_name, contact_password = :contact_password, contact_email = :contact_email 
-        WHERE contact_id = :contact_id;";
+        WHERE contact_id =".$contact.";";
 
         $stmt = Db::getDb()->prepare($sql);
 
         $vars = [
-            'contact_name' => $_POST['name'],
-            'contact_password' => $_POST['password'],
-            'contact_email' => $_POST['email']
+            'contact_name' => 'contact_name',
+            'contact_password' => 'contact_password',
+            'contact_email' => 'contact_email'
         ];
-
+d($vars);
         $stmt->execute($vars);
 
         $result = $stmt->fetch();

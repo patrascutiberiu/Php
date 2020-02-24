@@ -100,15 +100,25 @@ if (!empty($_SESSION['success'])) {
                 <tr>
                     <td><?= $contact['contact_name'] ?></td>
                     <td><?= $contact['contact_email'] ?></td>
-                    <td><a href="#" data-username="<?= $contact['contact_name'] ?>">Editer</a></td>
-                    <td><a href="formulaire_delete.php?id=<?=$contact['contact_id'] ?>" data-name="<?=$contact['contact_name'] ?>">Supprimer</a></td>
+                    <td><a href="formulaire_edit.php?edit=<?= $contact['contact_id'] ?>" data-username="<?= $contact['contact_name'] ?>">Editer</a></td>
+                    <form action="formulaire_delete.php" class="form" method="GET">
+                        <td><a href="formulaire_delete.php?id=<?= $contact['contact_id'] ?>">Supprimer</a></td>
+                        <!-- <td><input type="submit" id="delete" value="Delete"></td> -->
+                    </form>
                 </tr>
             <?php
             }
             ?>
         </table>
     </fieldset>
-
+    <script>
+        // window.addEventListener("DOMContentLoaded" , function(){
+        //     document.querySelector('#delete').addEventListener('click', function(){
+        //         document.querySelector('.form').setAttribute("methode","get");
+        //         document.querySelector('.form').submit();
+        //     });
+        // });
+    </script>
 
 </body>
 
