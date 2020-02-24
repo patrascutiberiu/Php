@@ -28,7 +28,7 @@ class FormulaireManager extends Formulaire
 
     public function removeContact(string $contact)
     {
-        $contact = $_POST['contact_id'];
+        $contact = intval($contact);
 
         $sql = "DELETE FROM contact WHERE contact_id =" . $contact . ";";
 

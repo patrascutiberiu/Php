@@ -101,7 +101,7 @@ if (!empty($_SESSION['success'])) {
                     <td><?= $contact['contact_name'] ?></td>
                     <td><?= $contact['contact_email'] ?></td>
                     <td><a href="#" data-username="<?= $contact['contact_name'] ?>">Editer</a></td>
-                    <td><a href="formulaire_delete.php" data-name="<?= $contact['contact_name'] ?>">Supprimer</a></td>
+                    <td><a href="formulaire_delete.php?id=<?=$contact['contact_id'] ?>" data-name="<?=$contact['contact_name'] ?>">Supprimer</a></td>
                 </tr>
             <?php
             }

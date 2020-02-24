@@ -14,16 +14,16 @@ if (empty($_POST['name']) && empty($_POST['password']) && empty($_POST['email'])
 //     exit();
 // }
 
-$regex_name = '/^[a-z0-9\.-_]{4}$/i';
+$regex_name = '/^[a-z0-9\.-_]{4}/$i';
 
-if (!preg_match($regex_name, $_POST['name'])) {
+if (preg_match($regex_name, $_POST['name'])) {
     $_SESSION['error'] = "Le nom doit contenir minimum 4 caractères !";
     header('location: index.php');
     exit();
 }
 
-$regex_password = '^[a-zA-Z0-9 \./*-+_@!:;,]{4,20}$';
-if (!preg_match($regex_password, $_POST['password'])) {
+$regex_password = '/^[a-zA-Z0-9 \./*-+_@!:;,]{4,20}$/';
+if (preg_match($regex_password, $_POST['password'])) {
     $_SESSION['error'] = "Le password doit contenir minimum 4 caractères !";
     header('location: index.php');
     exit();

@@ -7,13 +7,14 @@ require_once 'Debug.php';
 
 $formulaire = new FormulaireManager;
 
-$contact = $_POST['name'] ?? null;
+$contact = $_GET['id'] ?? null;
 
+d($_GET);
 if (!empty($contact)) {
-    if ($_SESSION['name'] === $contact) {
+   /* if ($_SESSION['name'] === $contact) {
         echo "0";
         exit;
-    }
+    }*/
 
     if ($formulaire->removeContact($contact)) {
         echo "1";
