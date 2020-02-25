@@ -41,9 +41,9 @@ $nouveauContact = [
     'contact_email' => $_POST['email']
 ];
 
-$contact = new ContactManager;
+$contact = new Contact;
 
-if ($contact->addContact($nouveauContact)) {
+if ($contact->insert($nouveauContact)) {
     $_SESSION['success'] = "Contact ajouté !";
 } else {
     $_SESSION['error'] = "Erreur ajout de contact !";

@@ -23,7 +23,7 @@ class Formulaire extends DbTable
             $result = null;
 
             if ($stmt->execute($values)) {
-                $result = $stmt->fetchAll();
+                $result = $stmt->fetch(PDO::FETCH_OBJ);
             }
 
             $stmt->closeCursor();

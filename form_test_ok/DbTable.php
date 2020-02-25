@@ -18,7 +18,7 @@ abstract class DbTable
 
     abstract public static function getAll();
 
-    abstract public static function insert(string $_name, string $_password, string $_email);
+    abstract public static function insert(array $contact);
 
     abstract public static function update(array $contact);
 

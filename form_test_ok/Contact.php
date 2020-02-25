@@ -2,6 +2,8 @@
 
 class Contact extends DbTable
 {
+    protected $db;
+
     public function __construct()
     {
         parent::__construct('contact', 'contact_id');
@@ -12,7 +14,7 @@ class Contact extends DbTable
         try {
             $sql = "SELECT * FROM contact WHERE contact_id = " . $_id . ";";
 
-            return Db::getDb()->query($sql)->fetch();
+            return Db::getDb()->query($sql)->fetch(PDO::FETCH_OBJ);
         } catch (Exception $th) {
             echo $th;
         }
@@ -49,18 +51,18 @@ class Contact extends DbTable
         }
     }
 
-    public static function insert(string $_name, string $_password, string $_email): bool
+    public static function insert(array $contact): bool
     {
-        $_password = password_hash($_password, PASSWORD_BCRYPT);
+
 
         $sql = "INSERT INTO contact (contact_name, contact_password, contact_email) VALUES (:contact_name, :contact_password, :contact_email);";
 
         $stmt = Db::getDb()->prepare($sql);
 
         $vars = [
-            'contact_name' => $_name,
-            'contact_password' => $_password,
-            'contact_email' => $_email
+            'contact_name' => $contact['contact_name'],
+            'contact_password' => password_hash($contact['contact_password'], PASSWORD_BCRYPT),
+            'contact_email' => $contact['contact_email']
         ];
 
         if ($stmt->execute($vars)) {
@@ -79,8 +81,8 @@ class Contact extends DbTable
         $vars = [
             'contact_id' => $contact['contact_id'],
             'contact_name' => $contact['contact_name'],
-            'contact_password' => $contact['password'],
-            'contact_email' => $contact['email']
+            'contact_password' => password_hash($contact['contact_password'], PASSWORD_BCRYPT),
+            'contact_email' => $contact['contact_email']
         ];
 
         return $stmt->execute($vars);
@@ -88,6 +90,6 @@ class Contact extends DbTable
 
     public static function delete(int $_id): int
     {
-        return Db::getDb()->exec("DELETE FROM contact WHERE contact_id = " . $_id . ";");
+        return Db::getDb()->exec("DELETE FROM contact WHERE contact_id = " . $_id . " LIMIT 1;");
     }
 }
