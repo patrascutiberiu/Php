@@ -1,8 +1,8 @@
 <?php
-
+/*
 session_start();
 require_once 'Loader.php';
-
+require_once 'Debug.php';
 if (!empty($_SESSION['error'])) {
 ?>
     <div class="console">
@@ -41,29 +41,26 @@ if (!empty($_SESSION['success'])) {
     <fieldset>
         <legend>Ajouter un nouveau contact</legend>
         <?php
-        if (!empty($_GET['id'])) {
-            $id = basename($_GET['id']);
-            $userEditName = basename($_GET['name']);
-            $userEditPassword = basename($_GET['password']);
-            $userEditEmail = basename($_GET['email']);
+        if (!empty($_GET['edit'])) {
+            $editName = basename($_GET['edit']);
 
             $formulaireContact = new FormulaireManager;
 
-            // $contactEdit = $formulaireContact->updateContact($userEdit,$userEditName,$userEditPassword,$userEditEmail);
+            $contactEdit = $formulaireContact->updateContact2($editName);
 
-            if (empty($id)) {
-                header('location: index.php');
+            if (empty($editName)) {
+                header('location: index2.php');
             }
 
         ?>
-            <form action="formulaire_edit.php" method="get">
-                <input type="hidden" name="id" id="name" value="<?= $id ?>">
+            <form action="formulaire_edit.php" method="post">
+                <input type="hidden" name="id" id="name" value="<?= $contactEdit['contact_id'] ?>">
                 <label for="name"><span>Nom / Prenom *</span>
-                    <input type="text" name="name" id="name" value="<?= $userEditName ?>"></label>
+                    <input type="text" name="name" id="name" value="<?= $contactEdit['contact_name'] ?>"></label>
                 <label for="password"><span>Mot de passe *</span>
-                    <input type="password" name="password" value="<?= $userEditPassword ?>"></label>
+                    <input type="password" name="password" value="<?= $contactEdit['contact_password'] ?>"></label>
                 <label for="email"><span>Email *</span>
-                    <input type="email" name="email" value="<?= $userEditEmail ?>"></label>
+                    <input type="email" name="email" value="<?= $contactEdit['contact_email'] ?>"></label>
                 <input type="submit" value="Edit Contact">
             </form>
 
@@ -106,11 +103,12 @@ if (!empty($_SESSION['success'])) {
                 <tr>
                     <td><?= $contact['contact_name'] ?></td>
                     <td><?= $contact['contact_email'] ?></td>
-                    <form action="index.php" method="GET">
-                        <td><a href="index.php?id=<?= $contact['contact_id']; ?>&name=<?= $contact['contact_name']; ?>&password=<?= $contact['contact_password']; ?>&email=<?= $contact['contact_email']; ?>">Editer</a>
-                            <input type="submit" id="Edit" value="Edit">
-                        </td>
+
+                    <form action="index2.php" method="get">
+                        <td><a href="index2.php?edit=<?= $contact['contact_name']; ?>">Editer</a></td>
                     </form>
+
+
                     <form action="formulaire_delete.php" class="form" method="GET">
                         <td><a href="formulaire_delete.php?id=<?= $contact['contact_id'] ?>">Supprimer</a></td>
                         <!-- <td><input type="submit" id="delete" value="Delete"></td> -->

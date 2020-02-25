@@ -1,8 +1,6 @@
 <?php
-
 session_start();
 require_once 'Loader.php';
-
 if (!empty($_SESSION['error'])) {
 ?>
     <div class="console">
@@ -32,7 +30,7 @@ if (!empty($_SESSION['success'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="style.css">
     <title>Formulaire contact</title>
 </head>
 
@@ -106,11 +104,12 @@ if (!empty($_SESSION['success'])) {
                 <tr>
                     <td><?= $contact['contact_name'] ?></td>
                     <td><?= $contact['contact_email'] ?></td>
+
                     <form action="index.php" method="GET">
-                        <td><a href="index.php?id=<?= $contact['contact_id']; ?>&name=<?= $contact['contact_name']; ?>&password=<?= $contact['contact_password']; ?>&email=<?= $contact['contact_email']; ?>">Editer</a>
-                            <input type="submit" id="Edit" value="Edit">
-                        </td>
+                        <td><a href="index.php?id=<?= $contact['contact_id'];?>&name=<?= $contact['contact_name'];?>&password=<?= $contact['contact_password'];?>&email=<?= $contact['contact_email'];?>">Editer</a></td>
                     </form>
+
+
                     <form action="formulaire_delete.php" class="form" method="GET">
                         <td><a href="formulaire_delete.php?id=<?= $contact['contact_id'] ?>">Supprimer</a></td>
                         <!-- <td><input type="submit" id="delete" value="Delete"></td> -->

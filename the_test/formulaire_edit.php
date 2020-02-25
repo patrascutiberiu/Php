@@ -12,17 +12,17 @@ $name = $_GET['name'] ?? null;
 $password = $_GET['password'] ?? null;
 $email = $_GET['email'] ?? null;
 
-d($_POST);
+//d($_GET);
 
  if (!empty($id)) {
     if ($formulaire->updateContact($id,$name,$password,$email)) {
         echo "1";
         header('location: index.php');
-        exit;
+       
     }
     else{
-        echo 'Erreur Update Contact';
+        echo 'error';
     }
 }
 
-header('location: index.php');
+
