@@ -30,7 +30,7 @@ class FormulaireManager extends Formulaire
     {
         $contact = intval($contact);
 
-        $sql = "DELETE FROM contact WHERE contact_id =" . $contact . ";";
+        $sql = "DELETE FROM contact WHERE contact_id =" . $contact . " LIMIT 1;";
 
         //
         $stmt = Db::getDb()->query($sql);
@@ -50,21 +50,28 @@ class FormulaireManager extends Formulaire
         return $result;
     }
 
-    public function updateContact(string $contact)
+    public function updateContact(string $_id, string $_name, string $_password, string $_email)
     {
-        $contact = intval($contact);
+        $_id = intval($_id);
+        $_name = $_GET['contact_name'];
+        $_password = $_GET['contact_password'];
+        $_email = $_GET['contact_password'];
+
+
         $sql = "UPDATE contact 
         SET contact_name = :contact_name, contact_password = :contact_password, contact_email = :contact_email 
-        WHERE contact_id =".$contact.";";
+        WHERE contact_id =" . $_id . ";";
 
         $stmt = Db::getDb()->prepare($sql);
 
         $vars = [
-            'contact_name' => 'contact_name',
-            'contact_password' => 'contact_password',
-            'contact_email' => 'contact_email'
+            'contact_name' => $_name,
+            'contact_password' => $_password,
+            'contact_email' => $_email
         ];
-d($vars);
+
+        d($vars);
+
         $stmt->execute($vars);
 
         $result = $stmt->fetch();

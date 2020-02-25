@@ -39,12 +39,15 @@ if (!empty($_SESSION['success'])) {
     <fieldset>
         <legend>Ajouter un nouveau contact</legend>
         <?php
-        if (!empty($_GET['edit'])) {
-            $userEdit = basename($_GET['edit']);
+        if (!empty($_GET['id'])) {
+            $userEdit = basename($_GET['id']);
+            $userEditName = basename($_GET['name']);
+            $userEditPassword = basename($_GET['password']);
+            $userEditEmail = basename($_GET['email']);
 
             $formulaireContact = new FormulaireManager;
 
-            $contactEdit = $formulaireContact->updateContact($userEdit);
+            $contactEdit = $formulaireContact->updateContact($userEdit,$userEditName,$userEditPassword,$userEditEmail);
 
             if (empty($userEdit)) {
                 header('location: index.php');
@@ -100,7 +103,16 @@ if (!empty($_SESSION['success'])) {
                 <tr>
                     <td><?= $contact['contact_name'] ?></td>
                     <td><?= $contact['contact_email'] ?></td>
-                    <td><a href="formulaire_edit.php?edit=<?= $contact['contact_id'] ?>" data-username="<?= $contact['contact_name'] ?>">Editer</a></td>
+
+                    <form action="formulaire_edit.php" method="GET">
+                        <td><a href="formulaire_edit.php?
+                        id=<?= $contact['contact_id'] ?>
+                        &name=<?= $contact['contact_name'] ?>
+                        &password=<?= $contact['contact_password'] ?>
+                        &email=<?= $contact['contact_email'] ?>">Editer</a></td>
+                    </form>
+
+
                     <form action="formulaire_delete.php" class="form" method="GET">
                         <td><a href="formulaire_delete.php?id=<?= $contact['contact_id'] ?>">Supprimer</a></td>
                         <!-- <td><input type="submit" id="delete" value="Delete"></td> -->
