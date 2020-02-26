@@ -33,22 +33,21 @@ if (preg_match($regexPhone,$_POST['phone'])) {
 d($_POST);
 
 
-$name = $_POST['name'];
-$city= $_POST['city'];
-$phone = $_POST['phone'];
+$entreprise = new Entreprise($_POST['name'], $_POST['city'], $_POST['phone']);
 
 
-$entreprise = new Entreprise($name, $city, $phone);
 
 
 
 d($entreprise);
 
-if ($entreprise->insert($entreprise)) {
+if ($entreprise->insert()) {
     $_SESSION['success'] = "Contact ajouté !";
 } else {
     $_SESSION['error'] = "Erreur ajout de contact !";
 }
+
+
 ?>
 <fieldset>
     <legend>Liste des entreprises</legend>
