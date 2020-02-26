@@ -3,6 +3,7 @@ require_once('contactManager.php');
 require_once('contact.php');
 
 $contactManager =  new contactManager();
+
 $contact = $contactManager->read($_POST['id']);
 
 $contact->setNom($_POST['lastName']);

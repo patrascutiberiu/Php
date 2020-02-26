@@ -3,6 +3,16 @@ session_start();
 require_once 'Loader.php';
 require_once 'Debug.php';
 
+if (!empty($_SESSION['error'])) {
+    $_SESSION['error'];
+    $_SESSION['error'] = null;
+}
+
+if (!empty($_SESSION['success'])) {
+    $_SESSION['success'];
+    $_SESSION['success'] = null;
+}
+
 
 if (empty($_POST['name']) || empty($_POST['city']) || empty($_POST['phone'])) {
     $_SESSION['error'] = 'Toutes les informations sont obligatoires ! ';
@@ -30,16 +40,7 @@ if (preg_match($regexPhone,$_POST['phone'])) {
     exit();
 }
 
-d($_POST);
-
-
 $entreprise = new Entreprise($_POST['name'], $_POST['city'], $_POST['phone']);
-
-
-
-
-
-d($entreprise);
 
 if ($entreprise->insert()) {
     $_SESSION['success'] = "Contact ajouté !";
@@ -47,25 +48,24 @@ if ($entreprise->insert()) {
     $_SESSION['error'] = "Erreur ajout de contact !";
 }
 
-
 ?>
+
 <fieldset>
     <legend>Liste des entreprises</legend>
     <table>
         <tr>
             <th>Nom</th>
-            <th>Ville</th>
             <th>Téléphone</th>
         </tr>
 
         <?php
+
         $entreprises = new EntrepriseManager;
 
         foreach ($entreprises->getAll() as $entreprise) {
         ?>
             <tr>
                 <th><?= $entreprise['ets_name']; ?></th>
-                <th><?= $entreprise['ets_city']; ?></th>
                 <th><?= $entreprise['ets_phone']; ?></th>
             </tr>
         <?php
@@ -73,4 +73,5 @@ if ($entreprise->insert()) {
         ?>
 
     </table>
+    <p><a href="index.php">Retour formulaire</a></p>
 </fieldset>

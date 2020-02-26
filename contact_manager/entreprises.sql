@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 26 fév. 2020 à 14:19
+-- Généré le :  mer. 26 fév. 2020 à 13:56
 -- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.3.12
 
@@ -21,14 +21,16 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `addressbook`
 --
-CREATE DATABASE IF NOT EXISTS `addressbook` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `addressbook`;
 
 -- --------------------------------------------------------
 
 --
 -- Structure de la table `entreprises`
 --
+drop DATABASE IF EXISTS addressbook2
+CREATE DATABASE addressbook2
+
+use 
 
 DROP TABLE IF EXISTS `entreprises`;
 CREATE TABLE IF NOT EXISTS `entreprises` (
@@ -37,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `entreprises` (
   `ets_city` varchar(100) NOT NULL DEFAULT 'Mulhouse',
   `ets_phone` char(16) NOT NULL,
   PRIMARY KEY (`ets_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `entreprises`
@@ -51,5 +53,9 @@ INSERT INTO `entreprises` (`ets_id`, `ets_name`, `ets_city`, `ets_phone`) VALUES
 (44, 'franky', 'mulhouse', '0365556365'),
 (45, 'franky', 'mulhouse', '0365556365'),
 (46, 'franky', 'mulhouse', '0365556365'),
-(47, 'tibo', 'paris', '0666666666'),
-(48, 'tibo', 'paris', '0666666666');
+(47, 'tibo', 'paris', '0666666666');
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

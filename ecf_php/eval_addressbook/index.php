@@ -3,25 +3,14 @@
 session_start();
 require_once 'Loader.php';
 require_once 'Debug.php';
-if (!empty($_SESSION['error'])) {
-?>
-    <div class="console">
-        <?= $_SESSION['error']; ?>
-    </div>
 
-    <?php
-    //toujour mettre a null pour vider la session
-    ?>
-    <?= $_SESSION['error'] = null; ?>
-<?php
+if (!empty($_SESSION['error'])) {
+    $_SESSION['error'];
+    $_SESSION['error'] = null;
 }
 
 if (!empty($_SESSION['success'])) {
-?>
-    <div class="console">
-        <?= $_SESSION['success']; ?>
-    </div>
-<?php
+    $_SESSION['success'];
     $_SESSION['success'] = null;
 }
 
@@ -39,7 +28,7 @@ if (!empty($_SESSION['success'])) {
     <fieldset>
         <legend>Formulaire inscription entreprises</legend>
         <form action="result.php" method="POST">
-            <input type="hidden" name="id">
+            <!-- <input type="hidden" name="id"> -->
             <label for="name">Nom de l'entreprise : </label>
             <input type="text" name="name" id="name">
             <br>
@@ -50,7 +39,6 @@ if (!empty($_SESSION['success'])) {
             <input type="text" name="phone" id="phone">
             <br>
             <input type="submit" value="Add Entreprise">
-
         </form>
     </fieldset>
 </body>

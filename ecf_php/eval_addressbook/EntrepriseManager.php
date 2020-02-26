@@ -24,7 +24,7 @@ class EntrepriseManager extends DbTable
     public static function getAll(): array
     {
         try {
-            return Db::getDb()->query("SELECT * FROM entreprises;")->fetchAll();
+            return Db::getDb()->query("SELECT ets_name, ets_phone FROM entreprises;")->fetchAll();
         } catch (Exception $th) {
             echo $th;
         }
