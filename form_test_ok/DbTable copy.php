@@ -1,6 +1,7 @@
 <?php
 abstract class DbTable
 {
+    
     protected $primaryKey;
 
     protected $tableName;
@@ -14,7 +15,7 @@ abstract class DbTable
         $this->pdo = Db::getDb();
     }
 
-    abstract public static function get(int $_id);
+    abstract public static function get(int $id);
 
     abstract public static function getAll();
 

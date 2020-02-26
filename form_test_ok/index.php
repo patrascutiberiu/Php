@@ -2,6 +2,7 @@
 
 session_start();
 require_once 'Loader.php';
+require_once 'Debug.php';
 
 if (!empty($_SESSION['error'])) {
 ?>
