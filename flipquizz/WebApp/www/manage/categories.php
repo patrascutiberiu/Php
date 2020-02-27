@@ -8,7 +8,7 @@
             <input type="text" name="category_name" id="" required></label>
         <label for="category_description"><span>Category description *</span>
             <input type="text" name="category_description" id="" required></label>
-            <label for="category_id"><span>Quiz Theme*</span>
+            <label for="category_id"><span>Quiz Theme*</span>        
             <select name="quiz_id" id="">
                 <?php
 
