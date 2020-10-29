@@ -34,9 +34,9 @@
  
 
 
-// $insultes = ['merde','connase','con','putain','pute','bitte'];
-// $phrase=readline('Entrez votre phrase de merde :');
-// foreach ($insultes as $value) {
+// $mots = ['bonhomme','tib','pomme','voiture','volet','eau'];
+// $phrase=readline('Entrez votre phrase :');
+// foreach ($mots as $value) {
 //     $replace=substr($value,0,1) .str_repeat('*',strlen($value)-1);
 //     $phrase= str_replace($value, $replace, $phrase);
 // }
